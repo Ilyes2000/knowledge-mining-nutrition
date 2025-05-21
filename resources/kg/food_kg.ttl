@@ -1,0 +1,705 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix foodex: <https://data.food.gov.uk/codes/foodtype/id#> .
+@prefix kmn: <http://opendata.inrae.fr/kmn/> .
+@prefix local: <http://www.owl-ontologies.com/local#> .
+@prefix mod: <https://w3id.org/mod#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos1: <http://www.owl-ontologies.com/skos#> .
+@prefix terms-foodtype: <http://data.food.gov.uk/codes/foodtype/def/terms/> .
+@prefix time1: <http://www.owl-ontologies.com/time#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+kmn: a owl:Ontology ;
+    dc:title "Food Consumption Ontology" ;
+    owl:versionInfo "0.1" ;
+    mod:createdWith <https://chowlk.linkeddata.es/> .
+
+kmn:Age0To1 a owl:Class ;
+    rdfs:label "Age0 To1" ;
+    rdfs:subClassOf kmn:AgeGroup .
+
+kmn:Age11To14 a owl:Class ;
+    rdfs:label "Age11 To14" ;
+    rdfs:subClassOf kmn:AgeGroup .
+
+kmn:Age15To17 a owl:Class ;
+    rdfs:label "Age15 To17" ;
+    rdfs:subClassOf kmn:AgeGroup .
+
+kmn:Age18To44 a owl:Class ;
+    rdfs:label "Age18 To44" ;
+    rdfs:subClassOf kmn:AgeGroup .
+
+kmn:Age1To3 a owl:Class ;
+    rdfs:label "Age1 To3" ;
+    rdfs:subClassOf kmn:AgeGroup .
+
+kmn:Age45To64 a owl:Class ;
+    rdfs:label "Age45 To64" ;
+    rdfs:subClassOf kmn:AgeGroup .
+
+kmn:Age4To6 a owl:Class ;
+    rdfs:label "Age4 To6" ;
+    rdfs:subClassOf kmn:AgeGroup .
+
+kmn:Age65To79 a owl:Class ;
+    rdfs:label "Age65 To79" ;
+    rdfs:subClassOf kmn:AgeGroup .
+
+kmn:Age7To10 a owl:Class ;
+    rdfs:label "Age7 To10" ;
+    rdfs:subClassOf kmn:AgeGroup .
+
+kmn:Age80To a owl:Class ;
+    rdfs:label "Age80 To" ;
+    rdfs:subClassOf kmn:AgeGroup .
+
+kmn:Female a owl:Class ;
+    rdfs:label "Female" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:isCurrentlyPregnant ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:monthOfPreganancy ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:isMensturalCycleStops ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:isBreastFeeding ],
+        kmn:Individual .
+
+kmn:Male a owl:Class ;
+    rdfs:label "Male" ;
+    rdfs:subClassOf kmn:Individual .
+
+kmn:checkPersonalConstraints a owl:ObjectProperty ;
+    rdfs:label "check personal constraints" ;
+    rdfs:domain kmn:Recommendation ;
+    rdfs:range kmn:PersonalConstraints .
+
+kmn:checksMedicalInfomation a owl:ObjectProperty ;
+    rdfs:label "checks medical infomation" ;
+    rdfs:domain kmn:Recommendation ;
+    rdfs:range local:MedicalInformation .
+
+kmn:forConsumer a owl:ObjectProperty ;
+    rdfs:label "for consumer" ;
+    rdfs:domain kmn:Recommendation ;
+    rdfs:range kmn:Individual .
+
+kmn:hasBaseTerm a owl:ObjectProperty ;
+    rdfs:label "has base term" ;
+    rdfs:domain kmn:Food ;
+    rdfs:range terms-foodtype:FoodType .
+
+kmn:hasConsumption a owl:ObjectProperty ;
+    rdfs:label "has consumption" ;
+    rdfs:domain kmn:Individual ;
+    rdfs:range kmn:Consumption .
+
+kmn:hasFood a owl:ObjectProperty ;
+    rdfs:label "has food" ;
+    rdfs:domain kmn:FoodComposition ;
+    rdfs:range kmn:Food .
+
+kmn:hasFoodComposition a owl:ObjectProperty ;
+    rdfs:label "has food composition" ;
+    rdfs:domain kmn:Meal ;
+    rdfs:range kmn:FoodComposition .
+
+kmn:hasFoodInterests a owl:ObjectProperty ;
+    rdfs:label "has food interests" ;
+    rdfs:domain kmn:Individual ;
+    rdfs:range kmn:FoodInterests .
+
+kmn:hasFoodPreferences a owl:ObjectProperty ;
+    rdfs:label "has food preferences" ;
+    rdfs:domain kmn:Individual ;
+    rdfs:range kmn:FoodPreferences .
+
+kmn:hasHealthConstraints a owl:ObjectProperty ;
+    rdfs:label "has health constraints" ;
+    rdfs:domain kmn:Individual ;
+    rdfs:range local:HealthConstraints .
+
+kmn:hasMeal a owl:ObjectProperty ;
+    rdfs:label "has meal" ;
+    rdfs:domain kmn:FullDayConsumption ;
+    rdfs:range kmn:Meal .
+
+kmn:hasNutriment a owl:ObjectProperty ;
+    rdfs:label "has nutriment" ;
+    rdfs:domain kmn:NutrimentComposition ;
+    rdfs:range kmn:Nutriment .
+
+kmn:hasNutrimentComposition a owl:ObjectProperty ;
+    rdfs:label "has nutriment composition" ;
+    rdfs:domain kmn:Food ;
+    rdfs:range kmn:NutrimentComposition .
+
+kmn:hasPersonalConstraints a owl:ObjectProperty ;
+    rdfs:label "has personal constraints" ;
+    rdfs:domain kmn:Individual ;
+    rdfs:range kmn:PersonalConstraints .
+
+kmn:hasPhysicalActivity a owl:ObjectProperty ;
+    rdfs:label "has physical activity" ;
+    rdfs:domain kmn:Individual ;
+    rdfs:range kmn:PhysicalActivity .
+
+kmn:hasUnitOfMeasure a owl:ObjectProperty ;
+    rdfs:label "has unit of measure" ;
+    rdfs:domain kmn:NutrimentComposition ;
+    rdfs:range kmn:UnitOfMeasure .
+
+kmn:isComposedOf a owl:ObjectProperty ;
+    rdfs:label "is composed of" ;
+    rdfs:domain kmn:Consumption ;
+    rdfs:range kmn:FullDayConsumption .
+
+kmn:kmn a owl:DatatypeProperty ;
+    rdfs:label "kmn" .
+
+kmn:suggestsConsumption a owl:ObjectProperty ;
+    rdfs:label "suggests consumption" ;
+    rdfs:domain kmn:Recommendation ;
+    rdfs:range kmn:FullDayConsumption .
+
+dc:title a owl:AnnotationProperty .
+
+local:checkHealthContraints a owl:ObjectProperty ;
+    rdfs:label "check health contraints" ;
+    rdfs:domain kmn:Recommendation ;
+    rdfs:range local:HealthConstraints .
+
+local:hasMedicalInformation a owl:ObjectProperty ;
+    rdfs:label "has medical information" ;
+    rdfs:domain kmn:Individual ;
+    rdfs:range local:MedicalInformation .
+
+skos1:notation a owl:DatatypeProperty ;
+    rdfs:label "notation" .
+
+skos1:prefLabel a owl:DatatypeProperty ;
+    rdfs:label "pref label" .
+
+time1:hasBeginning a owl:DatatypeProperty ;
+    rdfs:label "has beginning" .
+
+time1:hasDuration a owl:DatatypeProperty ;
+    rdfs:label "has duration" .
+
+owl:versionInfo a owl:AnnotationProperty .
+
+foodex:hasFacet a owl:ObjectProperty ;
+    rdfs:label "has facet" ;
+    rdfs:domain kmn:Food ;
+    rdfs:range foodex:Facet .
+
+terms-foodtype:FoodType a owl:Class ;
+    rdfs:label "Food Type" .
+
+kmn:FoodInterests a owl:Class ;
+    rdfs:label "Food Interests" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:makingYourOwnFood ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:tastingNewDish ] .
+
+kmn:FoodPreferences a owl:Class ;
+    rdfs:label "Food Preferences" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:likesCheese ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:likesFruit ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:likesMilk ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:likesIceCream ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:likesFruitJuice ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:likesVegetables ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:likesFish ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:likesSoda ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:likesMeat ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:likesYogurt ] .
+
+kmn:Nutriment a owl:Class ;
+    rdfs:label "Nutriment" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty rdfs:label ],
+        [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty local:code ] .
+
+kmn:PhysicalActivity a owl:Class ;
+    rdfs:label "Physical Activity" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasWeelyPhysicalActivityInMin ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasWeeklyPhysicalIntensityInMET ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasDailySittingTime ] .
+
+kmn:UnitOfMeasure a owl:Class ;
+    rdfs:label "Unit Of Measure" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty rdfs:label ],
+        [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty local:code ] .
+
+kmn:ageLeaveSmooking a owl:DatatypeProperty ;
+    rdfs:label "age leave smooking" .
+
+kmn:ageStartSmoking a owl:DatatypeProperty ;
+    rdfs:label "age start smoking" .
+
+kmn:belongsTo a owl:DatatypeProperty ;
+    rdfs:label "belongs to" ;
+    rdfs:range xsd:int .
+
+kmn:cigarsPerDay a owl:DatatypeProperty ;
+    rdfs:label "cigars per day" .
+
+kmn:cigratesPerDay a owl:DatatypeProperty ;
+    rdfs:label "cigrates per day" .
+
+kmn:consumptionNumber a owl:DatatypeProperty ;
+    rdfs:label "consumption number" .
+
+kmn:foodex2Code a owl:DatatypeProperty ;
+    rdfs:label "foodex2 code" .
+
+kmn:hasAge a owl:DatatypeProperty ;
+    rdfs:label "has age" .
+
+kmn:hasAgeGroup a owl:ObjectProperty ;
+    rdfs:label "has age group" ;
+    rdfs:domain kmn:Individual ;
+    rdfs:range kmn:AgeGroup .
+
+kmn:hasAlmondBasedInfantFormulaInTolerance a owl:DatatypeProperty ;
+    rdfs:label "has almond based infant formula in tolerance" ;
+    rdfs:range xsd:Boolean .
+
+kmn:hasBmi a owl:DatatypeProperty ;
+    rdfs:label "has bmi" ;
+    rdfs:range xsd:Float .
+
+kmn:hasCeleryAllergy a owl:DatatypeProperty ;
+    rdfs:label "has celery allergy" ;
+    rdfs:range xsd:Boolean .
+
+kmn:hasCowMilkInTolerance a owl:DatatypeProperty ;
+    rdfs:label "has cow milk in tolerance" ;
+    rdfs:range xsd:Boolean .
+
+kmn:hasCrustaceanAllergy a owl:DatatypeProperty ;
+    rdfs:label "has crustacean allergy" ;
+    rdfs:range xsd:Boolean .
+
+kmn:hasDailySittingTime a owl:DatatypeProperty ;
+    rdfs:label "has daily sitting time" ;
+    rdfs:range xsd:Float .
+
+kmn:hasDietToNotGainWeight a owl:DatatypeProperty ;
+    rdfs:label "has diet to not gain weight" ;
+    rdfs:range xsd:Boolean .
+
+kmn:hasDietToStayInShape a owl:DatatypeProperty ;
+    rdfs:label "has diet to stay in shape" ;
+    rdfs:range xsd:Boolean .
+
+kmn:hasEggAllergy a owl:DatatypeProperty ;
+    rdfs:label "has egg allergy" ;
+    rdfs:range xsd:Boolean .
+
+kmn:hasFishAllergy a owl:DatatypeProperty ;
+    rdfs:label "has fish allergy" ;
+    rdfs:range xsd:Boolean .
+
+kmn:hasGlutenInTolerance a owl:DatatypeProperty ;
+    rdfs:label "has gluten in tolerance" ;
+    rdfs:range xsd:Boolean .
+
+kmn:hasHeight a owl:DatatypeProperty ;
+    rdfs:label "has height" ;
+    rdfs:range xsd:Float .
+
+<http://opendata.inrae.fr/kmn/hasLupinAllergy�> a owl:DatatypeProperty ;
+    rdfs:label "has lupin allergy�" .
+
+kmn:hasMedicalReasonToDiet a owl:DatatypeProperty ;
+    rdfs:label "has medical reason to diet" ;
+    rdfs:range xsd:Boolean .
+
+kmn:hasMolluscAllergy a owl:DatatypeProperty ;
+    rdfs:label "has mollusc allergy" ;
+    rdfs:range xsd:Boolean .
+
+kmn:hasMustardSeedAllergy a owl:DatatypeProperty ;
+    rdfs:label "has mustard seed allergy" ;
+    rdfs:range xsd:Boolean .
+
+kmn:hasNoRestrictionAndDiet a owl:DatatypeProperty ;
+    rdfs:label "has no restriction and diet" ;
+    rdfs:range xsd:Boolean .
+
+kmn:hasPeanutAllergy a owl:DatatypeProperty ;
+    rdfs:label "has peanut allergy" ;
+    rdfs:range xsd:Boolean .
+
+kmn:hasSesameSeedAllergy a owl:DatatypeProperty ;
+    rdfs:label "has sesame seed allergy" ;
+    rdfs:range xsd:Boolean .
+
+kmn:hasSoyaAllergy a owl:DatatypeProperty ;
+    rdfs:label "has soya allergy" ;
+    rdfs:range xsd:Boolean .
+
+kmn:hasSoyaBasedInfantFormulaInTolerance a owl:DatatypeProperty ;
+    rdfs:label "has soya based infant formula in tolerance" ;
+    rdfs:range xsd:Boolean .
+
+kmn:hasSulphiteAllergy a owl:DatatypeProperty ;
+    rdfs:label "has sulphite allergy" ;
+    rdfs:range xsd:Boolean .
+
+kmn:hasWeeklyPhysicalIntensityInMET a owl:DatatypeProperty ;
+    rdfs:label "has weekly physical intensity in m e t" ;
+    rdfs:range xsd:Float .
+
+kmn:hasWeelyPhysicalActivityInMin a owl:DatatypeProperty ;
+    rdfs:label "has weely physical activity in min" .
+
+kmn:hasWeight a owl:DatatypeProperty ;
+    rdfs:label "has weight" ;
+    rdfs:range xsd:Float .
+
+kmn:hasWheatFloorAllergy a owl:DatatypeProperty ;
+    rdfs:label "has wheat floor allergy" .
+
+kmn:isBreastFeeding a owl:DatatypeProperty ;
+    rdfs:label "is breast feeding" .
+
+kmn:isCurrentlyPregnant a owl:DatatypeProperty ;
+    rdfs:label "is currently pregnant" .
+
+kmn:isMensturalCycleStops a owl:DatatypeProperty ;
+    rdfs:label "is menstural cycle stops" .
+
+kmn:likesCheese a owl:DatatypeProperty ;
+    rdfs:label "likes cheese" .
+
+kmn:likesFish a owl:DatatypeProperty ;
+    rdfs:label "likes fish" .
+
+kmn:likesFruit a owl:DatatypeProperty ;
+    rdfs:label "likes fruit" .
+
+kmn:likesFruitJuice a owl:DatatypeProperty ;
+    rdfs:label "likes fruit juice" .
+
+kmn:likesIceCream a owl:DatatypeProperty ;
+    rdfs:label "likes ice cream" .
+
+kmn:likesMeat a owl:DatatypeProperty ;
+    rdfs:label "likes meat" .
+
+kmn:likesMilk a owl:DatatypeProperty ;
+    rdfs:label "likes milk" .
+
+kmn:likesSoda a owl:DatatypeProperty ;
+    rdfs:label "likes soda" .
+
+kmn:likesVegetables a owl:DatatypeProperty ;
+    rdfs:label "likes vegetables" .
+
+kmn:likesYogurt a owl:DatatypeProperty ;
+    rdfs:label "likes yogurt" .
+
+kmn:makingYourOwnFood a owl:DatatypeProperty ;
+    rdfs:label "making your own food" .
+
+kmn:mealLocaltion a owl:DatatypeProperty ;
+    rdfs:label "meal localtion" .
+
+kmn:mealType a owl:DatatypeProperty ;
+    rdfs:label "meal type" .
+
+kmn:monthOfPreganancy a owl:DatatypeProperty ;
+    rdfs:label "month of preganancy" .
+
+kmn:noDairyProducts a owl:DatatypeProperty ;
+    rdfs:label "no dairy products" ;
+    rdfs:range xsd:Boolean .
+
+kmn:noEggs a owl:DatatypeProperty ;
+    rdfs:label "no eggs" ;
+    rdfs:range xsd:Boolean .
+
+kmn:noHoney a owl:DatatypeProperty ;
+    rdfs:label "no honey" ;
+    rdfs:range xsd:Boolean .
+
+kmn:noMeat a owl:DatatypeProperty ;
+    rdfs:label "no meat" ;
+    rdfs:range xsd:Boolean .
+
+kmn:noSeaFood a owl:DatatypeProperty ;
+    rdfs:label "no sea food" ;
+    rdfs:range xsd:Boolean .
+
+kmn:originalCode a owl:DatatypeProperty ;
+    rdfs:label "original code" .
+
+kmn:pipesPerDay a owl:DatatypeProperty ;
+    rdfs:label "pipes per day" .
+
+kmn:tastingNewDish a owl:DatatypeProperty ;
+    rdfs:label "tasting new dish" .
+
+time1:before a owl:DatatypeProperty ;
+    rdfs:label "before" .
+
+rdfs:medicalReason a owl:DatatypeProperty ;
+    rdfs:label "medical reason" ;
+    rdfs:range xsd:String .
+
+foodex:Facet a owl:Class ;
+    rdfs:label "Facet" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:code ] .
+
+kmn:Consumption a owl:Class ;
+    rdfs:label "Consumption" .
+
+kmn:FoodComposition a owl:Class ;
+    rdfs:label "Food Composition" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:quantity ] .
+
+kmn:Meal a owl:Class ;
+    rdfs:label "Meal" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:mealType ],
+        [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:mealLocaltion ],
+        time1:TemporalEntity .
+
+kmn:PersonalConstraints a owl:Class ;
+    rdfs:label "Personal Constraints" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:noMeat ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:noSeaFood ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:noDairyProducts ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:noEggs ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:noHoney ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasNoRestrictionAndDiet ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasDietToLooseWeight ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasDietToNotGainWeight ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasDietToStayInShape ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasMedicalReasonToDiet ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty rdfs:medicalReason ] .
+
+kmn:code a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "code" .
+
+kmn:hasDietToLooseWeight a owl:DatatypeProperty ;
+    rdfs:label "has diet to loose weight" ;
+    rdfs:range xsd:Boolean .
+
+kmn:quantity a owl:DatatypeProperty ;
+    rdfs:label "quantity" .
+
+local:HealthConstraints a owl:Class ;
+    rdfs:label "Health Constraints" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasWheatFloorAllergy ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty <http://opendata.inrae.fr/kmn/hasLupinAllergy�> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasPeanutAllergy ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasEggAllergy ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasFishAllergy ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasCrustaceanAllergy ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasMolluscAllergy ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasSoyaAllergy ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasSesameSeedAllergy ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasMustardSeedAllergy ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasSulphiteAllergy ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasCeleryAllergy ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasCowMilkInTolerance ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasSoyaBasedInfantFormulaInTolerance ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasAlmondBasedInfantFormulaInTolerance ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasGlutenInTolerance ] .
+
+local:MedicalInformation a owl:Class ;
+    rdfs:label "Medical Information" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasWeight ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasHeight ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasBmi ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:ageStartSmoking ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:ageLeaveSmooking ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:cigratesPerDay ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:cigarsPerDay ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:pipesPerDay ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasDietToLooseWeight ] .
+
+local:code a owl:DatatypeProperty ;
+    rdfs:label "code" .
+
+time1:TemporalEntity a owl:Class ;
+    rdfs:label "Temporal Entity" .
+
+kmn:FullDayConsumption a owl:Class ;
+    rdfs:label "Full Day Consumption" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty time1:before ],
+        [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:consumptionNumber ],
+        time1:TemporalEntity .
+
+kmn:NutrimentComposition a owl:Class ;
+    rdfs:label "Nutriment Composition" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:quantity ] .
+
+rdfs:label a owl:DatatypeProperty ;
+    rdfs:label "label" .
+
+kmn:Food a owl:Class ;
+    rdfs:label "Food" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty rdfs:label ],
+        [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:originalCode ],
+        [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:foodex2Code ] .
+
+kmn:Recommendation a owl:Class ;
+    rdfs:label "Recommendation" .
+
+kmn:AgeGroup a owl:Class ;
+    rdfs:label "Age Group" .
+
+kmn:Individual a owl:Class ;
+    rdfs:label "Individual" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasAgeGroup ],
+        [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:code ],
+        [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:hasAge ],
+        [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty kmn:belongsTo ] .
+

@@ -1,0 +1,116 @@
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix kmn:   <http://opendata.inrae.fr/kmn/> .
+@prefix local: <http://www.owl-ontologies.com/local#> .
+@prefix foodex:<https://data.food.gov.uk/codes/foodtype/id#> .
+
+#
+# 1) FoodShape : chaque instance kmn:Food doit avoir
+#    - exactement un label (rdfs:label)
+#    - exactement un originalCode (kmn:originalCode)
+#    - exactement un foodex2Code (kmn:foodex2Code)
+#
+kmn:FoodShape
+  a sh:NodeShape ;
+  sh:targetClass kmn:Food ;
+
+  sh:property [
+    sh:path rdfs:label ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
+
+  sh:property [
+    sh:path kmn:originalCode ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
+
+  sh:property [
+    sh:path kmn:foodex2Code ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] .
+
+#
+# 2) IndividualShape : chaque instance kmn:Individual doit avoir
+#    - exactement un age (kmn:hasAge, xsd:int)
+#    - exactement un groupe d'âge (kmn:hasAgeGroup)
+#    - au moins une consommation (kmn:hasConsumption)
+#
+kmn:IndividualShape
+  a sh:NodeShape ;
+  sh:targetClass kmn:Individual ;
+
+  sh:property [
+    sh:path kmn:hasAge ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
+
+  sh:property [
+    sh:path kmn:hasAgeGroup ;
+    sh:class kmn:AgeGroup ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
+
+  sh:property [
+    sh:path kmn:hasConsumption ;
+    sh:class kmn:Consumption ;
+    sh:minCount 1 ;
+  ] .
+
+#
+# 3) ConsumptionShape : chaque instance kmn:Consumption doit avoir
+#    - exactement un numéro de consommation (kmn:consumptionNumber)
+#    - au moins un élément FullDayConsumption (kmn:isComposedOf)
+#
+kmn:ConsumptionShape
+  a sh:NodeShape ;
+  sh:targetClass kmn:Consumption ;
+
+  sh:property [
+    sh:path kmn:consumptionNumber ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
+
+  sh:property [
+    sh:path kmn:isComposedOf ;
+    sh:class kmn:FullDayConsumption ;
+    sh:minCount 1 ;
+  ] .
+
+#
+# 4) PersonalConstraintsShape : 
+#    chaque kmn:PersonalConstraints ne doit pas mélanger
+#    deux allergies incompatibles (exemple simplifié)
+#
+#    NOTE: pour une contrainte d'exclusion, on peut combiner
+#    sh:not avec un shape dédié, mais ceci est un exemple minimal.
+#
+local:PersonalConstraintsShape
+  a sh:NodeShape ;
+  sh:targetClass kmn:PersonalConstraints ;
+
+  sh:property [
+    sh:path kmn:noMeat ;
+    sh:datatype xsd:boolean ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
+
+  sh:property [
+    sh:path kmn:noSeaFood ;
+    sh:datatype xsd:boolean ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] .
+
