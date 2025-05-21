@@ -1,24 +1,26 @@
 <p align="center">
   <!-- Python -->
-  <img alt="Python" src="https://raw.githubusercontent.com/github/explore/main/topics/python/python.png" height="60">&nbsp;&nbsp;
+  <img alt="Python" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" height="55">&nbsp;&nbsp;
   <!-- PyTorch -->
-  <img alt="PyTorch" src="https://raw.githubusercontent.com/github/explore/main/topics/pytorch/pytorch.png" height="60">&nbsp;&nbsp;
-  <!-- Pandas -->
-  <img alt="Pandas" src="https://raw.githubusercontent.com/github/explore/main/topics/pandas/pandas.png" height="60">&nbsp;&nbsp;
+  <img alt="PyTorch" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" height="55">&nbsp;&nbsp;
   <!-- scikit-learn -->
-  <img alt="scikit-learn" src="https://raw.githubusercontent.com/github/explore/main/topics/scikit-learn/scikit-learn.png" height="60">&nbsp;&nbsp;
+  <img alt="Scikit-learn" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/scikit-learn/scikit-learn-original.svg" height="55">&nbsp;&nbsp;
   <!-- Jupyter -->
-  <img alt="Jupyter" src="https://raw.githubusercontent.com/github/explore/main/topics/jupyter-notebook/jupyter-notebook.png" height="60">&nbsp;&nbsp;
-  <!-- RDFLib / SHACL -->
-  <img alt="RDFLib" src="https://raw.githubusercontent.com/RDFLib/rdflib.github.io/master/img/rdflib-logo.png" height="60">&nbsp;&nbsp;
-  <!-- OpenAI -->
-  <img alt="OpenAI" src="https://raw.githubusercontent.com/github/explore/main/topics/openai/openai.png" height="60">&nbsp;&nbsp;
-  <!-- Git / GitHub -->
-  <img alt="Git" src="https://raw.githubusercontent.com/github/explore/main/topics/git/git.png" height="60">&nbsp;&nbsp;
-  <img alt="GitHub" src="https://raw.githubusercontent.com/github/explore/main/topics/github/github.png" height="60">
+  <img alt="Jupyter" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jupyter/jupyter-original.svg" height="55">&nbsp;&nbsp;
+  <!-- Pandas (NOUVEAU lien) -->
+  <img alt="Pandas" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" height="55">&nbsp;&nbsp;
+  <!-- RDFLib : logo non officiel → on met l’icône “RDF” générique -->
+  <img alt="RDF" src="https://raw.githubusercontent.com/vscode-icons/vscode-icons/master/icons/file_type_rdf.svg" height="55">&nbsp;&nbsp;
+  <!-- OpenAI : utiliser le logo minimal en SVG -->
+  <img alt="OpenAI" src="https://avatars.githubusercontent.com/u/63457326?s=200&v=4" height="55">&nbsp;&nbsp;
+  <!-- Git -->
+  <img alt="Git" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" height="55">&nbsp;&nbsp;
+  <!-- GitHub -->
+  <img alt="GitHub" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" height="55">
 </p>
 
 <br/>
+
 
 # knowledge-mining-nutrition
 > Data augmentation & personalised food-recommendation for the INCA 2 survey  
