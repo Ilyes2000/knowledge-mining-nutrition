@@ -11,7 +11,6 @@
   <img alt="Pandas" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" height="55">&nbsp;&nbsp;
   <!-- RDFLib : logo non officiel → on met l’icône “RDF” générique -->
   <img alt="RDF" src="https://raw.githubusercontent.com/vscode-icons/vscode-icons/master/icons/file_type_rdf.svg" height="55">&nbsp;&nbsp;
-  <img alt="RDFLib" src="docs/img/rdflib.svg" height="55">
   <!-- OpenAI : utiliser le logo minimal en SVG -->
   <img alt="OpenAI" src="https://avatars.githubusercontent.com/u/63457326?s=200&v=4" height="55">&nbsp;&nbsp;
   <!-- Git -->
@@ -42,7 +41,7 @@ Notre objectif : **enrichir** ces données via un GAN tabulaire + graphe de conn
 
 ## 2. Arborescence du dépôt
 
-<h2>2.&nbsp;Arborescence&nbsp;du&nbsp;dépôt</h2>
+
 
 <pre>
 knowledge-mining-nutrition/
