@@ -3,12 +3,15 @@
   <img alt="Python" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" height="55">&nbsp;&nbsp;
   <!-- PyTorch -->
   <img alt="PyTorch" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" height="55">&nbsp;&nbsp;
-
+  <!-- scikit-learn -->
+  <img alt="Scikit-learn" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/scikit-learn/scikit-learn-original.svg" height="55">&nbsp;&nbsp;
   <!-- Jupyter -->
   <img alt="Jupyter" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jupyter/jupyter-original.svg" height="55">&nbsp;&nbsp;
   <!-- Pandas (NOUVEAU lien) -->
   <img alt="Pandas" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" height="55">&nbsp;&nbsp;
-  
+  <!-- RDFLib : logo non officiel → on met l’icône “RDF” générique -->
+  <img alt="RDF" src="https://raw.githubusercontent.com/vscode-icons/vscode-icons/master/icons/file_type_rdf.svg" height="55">&nbsp;&nbsp;
+  <img alt="RDFLib" src="docs/img/rdflib.svg" height="55">
   <!-- OpenAI : utiliser le logo minimal en SVG -->
   <img alt="OpenAI" src="https://avatars.githubusercontent.com/u/63457326?s=200&v=4" height="55">&nbsp;&nbsp;
   <!-- Git -->
@@ -39,26 +42,31 @@ Notre objectif : **enrichir** ces données via un GAN tabulaire + graphe de conn
 
 ## 2. Arborescence du dépôt
 
+<h2>2.&nbsp;Arborescence&nbsp;du&nbsp;dépôt</h2>
+
+<pre>
 knowledge-mining-nutrition/
-├── data_augmented/               # CSV synthétiques générés
+├── data_augmented/               <!-- CSV synthétiques générés -->
 │   └── …                         
 ├── notebooks/
-│   ├── train.ipynb               # exécution complète (00→03)
-│   └── checkpoints/              # poids .pth sauvegardés
+│   ├── train.ipynb               <!-- exécution complète (00→03) -->
+│   └── checkpoints/              <!-- poids .pth sauvegardés -->
 │       └── *.pth
-├── nutrition_recommender/        # package Python principal
+├── nutrition_recommender/        <!-- package Python principal -->
 │   ├── __init__.py
-│   ├── cvae.py                   # (option) auto-encodeur conditionnel
-│   ├── data_preprocessing.py     # encodage / scaling INCA2
-│   ├── pipeline.py               # orchestration end-to-end
-│   ├── rdf2vec_embedder.py       # embeddings KG avec rdf2vec
-│   ├── shacl_validator.py        # validation structurelle SHACL
-│   └── tabular_gan.py            # implémentation GAN tabulaire
+│   ├── cvae.py                   <!-- (option) auto-encodeur conditionnel -->
+│   ├── data_preprocessing.py     <!-- encodage / scaling INCA2 -->
+│   ├── pipeline.py               <!-- orchestration end-to-end -->
+│   ├── rdf2vec_embedder.py       <!-- embeddings KG avec rdf2vec -->
+│   ├── shacl_validator.py        <!-- validation structurelle SHACL -->
+│   └── tabular_gan.py            <!-- implémentation GAN tabulaire -->
 ├── resources/
-│   ├── Dataset_INCA2/            # dump ANSES (non versionné – .gitignore)
-│   └── kg/                       # ontologie, contraintes, shapes
+│   ├── Dataset_INCA2/            <!-- dump ANSES (non versionné – .gitignore) -->
+│   └── kg/                       <!-- ontologie, contraintes, shapes -->
 ├── LICENSE
 └── README.md
+</pre>
+
 
 
 ## 3. Installation rapide
